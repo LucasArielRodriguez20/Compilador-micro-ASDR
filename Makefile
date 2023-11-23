@@ -1,14 +1,33 @@
+ifdef OS
+	RM = del /Q
+	ECHO = @echo
+else
+	RM = rm -f
+	ECHO = echo
+endif
+
 BIN = compiladorMicro.exe
 OBJ = compiladorMicro.o
 CC = gcc
 CFLAGS = -std=c18
 LFLAGS = -lm
-RM = rm -f
+
 $(BIN): $(OBJ)	
 	$(CC) $(OBJ) -o $(BIN) $(CFLAGS) $(LFLAGS)
 
 test: $(BIN)
+	$(ECHO) Programa micro correcto:
 	./$(BIN)  programaCorrecto.m
+	$(ECHO) -------------------------------------------------------------------------------
+	$(ECHO) Programa micro con error lexico:
+	./$(BIN)  ErrorLexico.m
+	$(ECHO) -------------------------------------------------------------------------------
+	$(ECHO) Programa micro con error sintactico:
+	./$(BIN)  ErrorSintactico.m
+	$(ECHO) -------------------------------------------------------------------------------
+	$(ECHO) Programa micro con error semantico:
+	./$(BIN)  ErrorSemantico.m
+	$(ECHO) -------------------------------------------------------------------------------
 
 all: $(BIN)
 
@@ -16,4 +35,4 @@ compiladorMicro.o: compiladorMicro.c
 	$(CC) -c compiladorMicro.c -o compiladorMicro.o $(CFLAGS)
 
 clean:
-	rm -rf *.o compiladorMicro.exe
+	$(RM) *.o compiladorMicro.exe

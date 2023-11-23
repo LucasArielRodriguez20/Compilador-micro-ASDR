@@ -1,5 +1,5 @@
 inicio
-25variable:=35;
+.variable4 := 0;
 variable1 := 25;
 varable2 := 0;
 varable3 := 80;
