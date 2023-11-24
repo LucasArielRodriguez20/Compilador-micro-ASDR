@@ -22,11 +22,8 @@ test: $(BIN)
 	$(ECHO) Programa micro con error lexico:
 	./$(BIN)  ErrorLexico.m
 	$(ECHO) -------------------------------------------------------------------------------
-	$(ECHO) Programa micro con error sintactico:
-	./$(BIN)  ErrorSintactico.m
-	$(ECHO) -------------------------------------------------------------------------------
-	$(ECHO) Programa micro con error semantico:
-	./$(BIN)  ErrorSemantico.m
+	$(ECHO) Programa micro con error sintactico y semantico:
+	./$(BIN)  ErrorSinYSem.m
 	$(ECHO) -------------------------------------------------------------------------------
 
 all: $(BIN)
